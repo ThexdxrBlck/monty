@@ -10,7 +10,6 @@ int main(int argc, char *argv[])
 {
 	char *content;
 	FILE *file;
-	size_t size = 0;
 	ssize_t read_line = 1;
 	stack_t *stack = NULL;
 	unsigned int counter = 0;
@@ -30,7 +29,7 @@ int main(int argc, char *argv[])
 	while (read_line > 0)
 	{
 		content = NULL;
-		read_line = *clean_line(&*content, &size, file);
+		read_line = clean_line(&content);
 		bus.content = content;
 		counter++;
 		if (read_line > 0)
